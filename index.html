@@ -1,496 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta & SEO -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nabin — Portfolio | Selected Work & Case Links</title>
-  <meta name="description" content="A curated portfolio of business websites across healthcare, tech, e‑commerce, hospitality, real estate, and consumer brands." />
-  <meta name="author" content="Nabin" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Styles -->
+  <title>Nabin — Portfolio | Selected Work</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0b0f14;
-      --card: #121821;
-      --muted: #8fa0b8;
-      --text: #eaf0ff;
-      --accent: #42a5f5;
-      --accent-2: #7c4dff;
-      --success: #36d399;
-      --border: #1e2633;
-      --hover: #1a2130;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      --radius: 14px;
-      --radius-sm: 10px;
-      --maxw: 1200px;
+      --bg: #ffffff;
+      --text: #222222;
+      --muted: #666666;
+      --accent: #0077ff;
+      --card-bg: #f9f9f9;
+      --border: #e0e0e0;
+      --radius: 12px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
     * { box-sizing: border-box; }
-    html, body { height: 100%; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
-    a { color: inherit; text-decoration: none; }
-
-    /* Layout */
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 32px 20px 64px; }
-    header {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 24px;
-      align-items: center;
-      margin-bottom: 28px;
-    }
-    @media (max-width: 900px) { header { grid-template-columns: 1fr; } }
-
-    .brand {
-      background: linear-gradient(135deg, #162033, #0f1724);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      padding: 22px;
-    }
-    .brand h1 {
-      font-size: 28px;
-      margin: 0 0 8px 0;
-      letter-spacing: 0.2px;
-    }
-    .brand .tagline {
-      color: var(--muted);
-      font-size: 15px;
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
-    .brand .meta {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 14px;
+    a { text-decoration: none; color: var(--accent); }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
     }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      padding: 8px 10px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: #0e1522;
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    header p {
       color: var(--muted);
+      font-size: 16px;
     }
-    .cta {
-      display: flex;
-      gap: 10px;
-      margin-top: 16px;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #061019;
-      font-weight: 600;
-      border: none;
-      box-shadow: 0 10px 25px rgba(66,165,245,0.25);
-    }
-    .btn.secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    @media (max-width: 900px) { .stats { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 560px) { .stats { grid-template-columns: 1fr; } }
 
-    .stat {
-      background: linear-gradient(180deg, #121a28, #0e1522);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      padding: 18px;
-    }
-    .stat .kpi { font-size: 22px; font-weight: 700; }
-    .stat .label { color: var(--muted); font-size: 13px; margin-top: 6px; }
-
-    /* Filters */
-    .filters {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin: 24px 0 10px;
-    }
-    .chip {
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #0e1522;
-      color: var(--muted);
-      font-size: 13px;
-      cursor: pointer;
-    }
-    .chip.active { border-color: var(--accent); color: var(--text); background: #112136; }
-
-    /* Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
-    @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
 
     .card {
-      position: relative;
-      background: linear-gradient(180deg, #121a28, #0f1624);
+      background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 18px;
+      padding: 20px;
       box-shadow: var(--shadow);
-      transition: transform .15s ease, background .2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .card:hover { transform: translateY(-2px); background: var(--hover); }
-
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
     .card h3 {
-      font-size: 18px;
-      margin: 0 0 6px 0;
+      margin: 0 0 8px;
+      font-size: 20px;
+      color: var(--accent);
     }
     .card p {
-      color: var(--muted);
       font-size: 14px;
-      line-height: 1.6;
-      margin: 0 0 12px 0;
-      min-height: 56px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
       color: var(--muted);
-      background: #0e1522;
-      margin-right: 8px;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      min-height: 60px;
     }
-
-    .actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-    .link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--text);
-      background: #0e1522;
-    }
-    .link.primary {
-      background: var(--accent-2);
-      color: #0b0f14;
-      border-color: transparent;
+    .card a {
+      display: inline-block;
+      padding: 8px 14px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 14px;
       font-weight: 600;
-      box-shadow: 0 10px 25px rgba(124,77,255,0.25);
+      transition: background 0.2s ease;
     }
-    .ext { width: 14px; height: 14px; display: inline-block; background: linear-gradient(135deg, #42a5f5, #7c4dff); border-radius: 3px; }
+    .card a:hover { background: #005fcc; }
 
     footer {
-      margin-top: 40px;
-      padding-top: 18px;
-      border-top: 1px dashed var(--border);
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
       color: var(--muted);
-      font-size: 13px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
+      font-size: 14px;
     }
-    .foot-links { display: flex; gap: 14px; flex-wrap: wrap; }
-    .foot-links a { color: var(--muted); }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <!-- Header / Intro -->
-    <header aria-label="Intro">
-      <section class="brand" aria-label="Brand summary">
-        <h1>Selected Work — Web Projects</h1>
-        <p class="tagline">
-          A cross‑industry portfolio spanning healthcare, tech, e‑commerce, hospitality, real estate, and consumer brands.
-          Built with a focus on modern UI, performance, and reliable delivery.
-        </p>
-        <div class="meta">
-          <span class="pill">Deliverables: <strong style="color:#eaf0ff;">Responsive Web</strong></span>
-          <span class="pill">Focus: <strong style="color:#eaf0ff;">UI/UX + Scalability</strong></span>
-          <span class="pill">Stack: <strong style="color:#eaf0ff;">HTML/CSS/JS</strong></span>
-        </div>
-        <div class="cta">
-          <a class="btn" href="#projects">View Projects</a>
-          <a class="btn secondary" href="#contact">Get in touch</a>
-        </div>
-      </section>
-
-      <section class="stats" aria-label="Highlights">
-        <div class="stat">
-          <div class="kpi">20+ Industries</div>
-          <div class="label">Healthcare, Tech, Retail, Real Estate, Hospitality</div>
-        </div>
-        <div class="stat">
-          <div class="kpi">Performance first</div>
-          <div class="label">Responsive, SEO‑ready, maintainable codebases</div>
-        </div>
-        <div class="stat">
-          <div class="kpi">End‑to‑end</div>
-          <div class="label">Design, build, deploy, iterate</div>
-        </div>
-      </section>
+    <header>
+      <h1>Portfolio Showcase</h1>
+      <p>A curated selection of projects across healthcare, tech, e‑commerce, hospitality, and real estate.</p>
     </header>
 
-    <!-- Filters (static labels for quick scanning) -->
-    <nav class="filters" aria-label="Project filters">
-      <span class="chip active">Healthcare</span>
-      <span class="chip">Tech & SaaS</span>
-      <span class="chip">E‑commerce</span>
-      <span class="chip">Hospitality</span>
-      <span class="chip">Real Estate</span>
-      <span class="chip">Consumer Brands</span>
-    </nav>
-
-    <!-- Project Grid -->
-    <main id="projects" class="grid" aria-label="Projects">
-
-      <!-- Healthcare / Medical Tourism -->
-      <article class="card" aria-label="Bandaari Medical Services">
+    <main class="grid">
+      <div class="card">
         <h3>Bandaari Medical Services</h3>
-        <p>Bandaari Medical Services is a distinguished leader in medical tourism, connecting patients with global healthcare.</p>
-        <div class="badge">Healthcare</div>
-        <div class="actions">
-          <a class="link primary" href="https://bandariglobalhealthcare.com" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext" aria-hidden="true"></span>
-          </a>
-        </div>
-      </article>
+        <p>Leader in medical tourism, connecting patients with trusted global healthcare providers.</p>
+        <a href="https://bandariglobalhealthcare.com" target="_blank">Visit Site</a>
+      </div>
 
-      <article class="card" aria-label="MedTour Health Expo">
-        <h3>MedTour Health Expo</h3>
-        <p>MedTour Health Expo is more than an event—it’s a movement transforming healthcare access and innovation.</p>
-        <div class="badge">Healthcare</div>
-        <div class="actions">
-          <a class="link primary" href="https://medtourhealthexpo.com" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
+      <div class="card">
+        <h3>Brother Printer Service</h3>
+        <p>Specialized printer service center with expert solutions for toner cartridges and maintenance.</p>
+        <a href="https://brotherprinterservicecenter.com" target="_blank">Visit Site</a>
+      </div>
 
-      <!-- Tech / Services -->
-      <article class="card" aria-label="ISYX Tech">
-        <h3>ISYX Tech — Tech Solution</h3>
-        <p>Global tech solutions helping businesses create customer impact through secure, scalable applications.</p>
-        <div class="badge">Tech & SaaS</div>
-        <div class="actions">
-          <a class="link primary" href="https://isyxtech.com" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
-
-      <article class="card" aria-label="Voxtron">
-        <h3>Voxtron — Digital Solution</h3>
-        <p>Application development company with 20+ years of experience, building secure, scalable digital solutions.</p>
-        <div class="badge">Tech & SaaS</div>
-        <div class="actions">
-          <a class="link primary" href="https://voxtronme.com" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Printers / Services -->
-      <article class="card" aria-label="Brother Printer Service">
-        <h3>Brother Printer Service Center</h3>
-        <p>Well‑qualified specialists providing toner cartridge handling and printer maintenance services.</p>
-        <div class="badge">Services</div>
-        <div class="actions">
-          <a class="link primary" href="https://brotherprinterservicecenter.com" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
-
-      <!-- E‑commerce / Fashion -->
-      <article class="card" aria-label="Tanabana by Aparna">
+      <div class="card">
         <h3>Tanabana by Aparna</h3>
-        <p>Clothing and handmade items offering a unique, artisan shopping experience.</p>
-        <div class="badge">E‑commerce</div>
-        <div class="actions">
-          <a class="link primary" href="https://tanabanabyaparna.com" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
+        <p>Handmade clothing and lifestyle items offering a unique artisan shopping experience.</p>
+        <a href="https://tanabanabyaparna.com" target="_blank">Visit Site</a>
+      </div>
 
-      <article class="card" aria-label="Aradhyahandloom">
+      <div class="card">
         <h3>Aradhyahandloom</h3>
-        <p>E‑commerce store for sarees, kurtis, and clothing essentials for a modern ethnic brand.</p>
-        <div class="badge">E‑commerce</div>
-        <div class="actions">
-          <a class="link primary" href="https://aradhyahandloom.com" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
+        <p>E‑commerce brand for ethnic wear including sarees, kurtis, and traditional apparel.</p>
+        <a href="https://aradhyahandloom.com" target="_blank">Visit Site</a>
+      </div>
 
-      <article class="card" aria-label="Brand Basket">
-        <h3>Brand Basket — Consumer Brand</h3>
-        <p>Curated selection of consumer products delivering a best‑in‑class shopping experience.</p>
-        <div class="badge">E‑commerce</div>
-        <div class="actions">
-          <a class="link primary" href="https://brandbasket.store" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
+      <div class="card">
+        <h3>FIJI Water</h3>
+        <p>Global beverage brand committed to sustainability and responsible business practices.</p>
+        <a href="https://fijiwater.com" target="_blank">Visit Site</a>
+      </div>
 
-      <!-- Beverage / Global Brand -->
-      <article class="card" aria-label="FIJI Water">
-        <h3>FIJI Water — Brand Site</h3>
-        <p>Iconic water brand committed to responsible business and sustainability initiatives.</p>
-        <div class="badge">Consumer Brands</div>
-        <div class="actions">
-          <a class="link primary" href="https://fijiwater.com" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
+      <div class="card">
+        <h3>Asset Homes</h3>
+        <p>Real estate developer offering premium apartments, flats, and villas with modern amenities.</p>
+        <a href="https://assethomes.in" target="_blank">Visit Site</a>
+      </div>
 
-      <article class="card" aria-label="Luxury Perfume">
-        <h3>Luxury Perfume — Brand</h3>
-        <p>Premium online destination for perfumes and colognes, featuring luxury selections.</p>
-        <div class="badge">Consumer Brands</div>
-        <div class="actions">
-          <a class="link primary" href="https://luxuryperfume.com" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
+      <div class="card">
+        <h3>Magzon India</h3>
+        <p>Fertilizer solutions for soil health, fungus control, and sustainable agriculture practices.</p>
+        <a href="https://magzonindia.com" target="_blank">Visit Site</a>
+      </div>
 
-      <!-- Real Estate -->
-      <article class="card" aria-label="Asset Homes">
-        <h3>Asset Homes — Real Estate</h3>
-        <p>Home builders offering a unique selection of apartments, flats, and villas.</p>
-        <div class="badge">Real Estate</div>
-        <div class="actions">
-          <a class="link primary" href="https://assethomes.in" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
+      <div class="card">
+        <h3>ISYX Tech</h3>
+        <p>Global technology solutions provider helping businesses deliver impactful customer experiences.</p>
+        <a href="https://isyxtech.com" target="_blank">Visit Site</a>
+      </div>
 
-      <article class="card" aria-label="Jersey Group">
-        <h3>Jersey Group — Projects Builder</h3>
-        <p>One of the foremost groups in the region, delivering diverse projects with quality.</p>
-        <div class="badge">Real Estate</div>
-        <div class="actions">
-          <a class="link primary" href="https://jerseygroup.com" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
-
-      <article class="card" aria-label="BookMyFirstHome">
-        <h3>BookMyFirstHome — Rent, Buy Home</h3>
-        <p>A platform to find and book homes and apartments locally, simplifying real estate journeys.</p>
-        <div class="badge">Real Estate</div>
-        <div class="actions">
-          <a class="link primary" href="https://bookmyfirsthome.com" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Hospitality -->
-      <article class="card" aria-label="Auragoa">
-        <h3>Auragoa — SPA & Living</h3>
-        <p>A wellness oasis near Goa International Airport, offering immersive spa and living experiences.</p>
-        <div class="badge">Hospitality</div>
-        <div class="actions">
-          <a class="link primary" href="https://auragoa.com" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
-
-      <article class="card" aria-label="Hotel Prince">
-        <h3>Hotel Prince — Hotel & Room Booking</h3>
-        <p>Odisha‑based hotel providing customer‑centric room booking and hospitality services.</p>
-        <div class="badge">Hospitality</div>
-        <div class="actions">
-          <a class="link primary" href="https://hotelprince.in" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Finance -->
-      <article class="card" aria-label="Money Vision">
-        <h3>Money Vision — Mutual Fund</h3>
-        <p>Mutual fund app experience designed for investors of all levels, with clear benefits and guidance.</p>
-        <div class="badge">Finance</div>
-        <div class="actions">
-          <a class="link primary" href="https://moneyvision.in" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Industry / Agriculture -->
-      <article class="card" aria-label="Magzon India">
-        <h3>Magzon India — Fertilizer & Agriculture</h3>
-        <p>Micro‑nutrient fertilizers with soil fungus and bacterial control products across India.</p>
-        <div class="badge">Industry</div>
-        <div class="actions">
-          <a class="link primary" href="https://magzonindia.com" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Community / Environmental -->
-      <article class="card" aria-label="Fraternity Technocrats">
-        <h3>Fraternity Technocrats</h3>
-        <p>Community‑driven initiatives encouraging environmentally conscious practices and innovation.</p>
-        <div class="badge">Community</div>
-        <div class="actions">
-          <a class="link primary" href="https://fraternitytechnocrats.com" target="_blank" rel="noopener noreferrer">
-            Visit site <span class="ext"></span>
-          </a>
-        </div>
-      </article>
-
+      <div class="card">
+        <h3>Hotel Prince</h3>
+        <p>Hospitality services in Odisha offering comfortable stays and customer‑focused amenities.</p>
+        <a href="https://hotelprince.in" target="_blank">Visit Site</a>
+      </div>
     </main>
 
-    <!-- Contact / Footer -->
-    <footer id="contact" aria-label="Contact">
-      <div>Interested in a modern, performance‑focused website? Let’s build something that wins trust and converts.</div>
-      <div class="foot-links">
-        <a href="#projects">Browse projects</a>
-        <a href="mailto:hello@nabin.dev">Email</a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </div>
+    <footer>
+      © 2025 Nabin — Portfolio Showcase. Built with passion for clean design and modern web.
     </footer>
   </div>
 </body>
