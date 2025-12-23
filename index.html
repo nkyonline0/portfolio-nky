@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .project-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
@@ -16,10 +17,10 @@
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-xl font-bold text-blue-600 underline">PORTFOLIO</h1>
             <div class="space-x-6 hidden md:block">
+                <a href="#react" class="hover:text-blue-600">React Projects</a>
                 <a href="#ecommerce" class="hover:text-blue-600">E-commerce</a>
                 <a href="#healthcare" class="hover:text-blue-600">Healthcare</a>
                 <a href="#realestate" class="hover:text-blue-600">Real Estate</a>
-                <a href="#tech" class="hover:text-blue-600">Enterprise</a>
             </div>
         </div>
     </nav>
@@ -44,6 +45,32 @@
 
     <main class="max-w-7xl mx-auto px-4 py-12">
 
+        <section id="react" class="mb-20">
+            <h3 class="text-3xl font-bold mb-8 border-l-4 border-cyan-500 pl-4">React Framework Projects</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-cyan-100 ring-1 ring-cyan-50">
+                    <span class="text-xs font-bold text-cyan-600 uppercase tracking-widest">Fintech • React.js</span>
+                    <h4 class="text-xl font-bold mt-2">Goldexa</h4>
+                    <p class="text-gray-600 text-sm mt-2">A high-performance platform for buying and selling gold. Features real-time price tracking and secure business transactions.</p>
+                    <a href="https://goldexa.in" target="_blank" class="text-cyan-600 text-sm mt-4 inline-block font-medium hover:underline">goldexa.in →</a>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-cyan-100 ring-1 ring-cyan-50">
+                    <span class="text-xs font-bold text-cyan-600 uppercase tracking-widest">B2B E-commerce • React.js</span>
+                    <h4 class="text-xl font-bold mt-2">PC World Raipur</h4>
+                    <p class="text-gray-600 text-sm mt-2">National B2B supplier platform based in Raipur. Managed large-scale inventory and national distribution logistics.</p>
+                    <a href="https://pcworldraipur.in" target="_blank" class="text-cyan-600 text-sm mt-4 inline-block font-medium hover:underline">pcworldraipur.in →</a>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-cyan-100 ring-1 ring-cyan-50">
+                    <span class="text-xs font-bold text-cyan-600 uppercase tracking-widest">Legal-Tech • React.js</span>
+                    <h4 class="text-xl font-bold mt-2">Razorfile</h4>
+                    <p class="text-gray-600 text-sm mt-2">A professional company registration site streamlining legal filings and business formations through a seamless digital workflow.</p>
+                    <a href="https://razorfile.com/" target="_blank" class="text-cyan-600 text-sm mt-4 inline-block font-medium hover:underline">razorfile.com →</a>
+                </div>
+            </div>
+        </section>
+
         <section id="ecommerce" class="mb-20">
             <h3 class="text-3xl font-bold mb-8 border-l-4 border-blue-600 pl-4">E-commerce & Luxury Retail</h3>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -51,25 +78,25 @@
                     <span class="text-xs font-bold text-blue-500 uppercase">Clothing</span>
                     <h4 class="text-xl font-bold mt-2">Tanabana by Aparna</h4>
                     <p class="text-gray-600 text-sm mt-2">Custom handmade clothing store with a focus on unique shopping experiences.</p>
-                    <a href="https://tanabanabyaparna.com" class="text-blue-600 text-sm mt-4 inline-block font-medium">tanabanabyaparna.com →</a>
+                    <a href="https://tanabanabyaparna.com" target="_blank" class="text-blue-600 text-sm mt-4 inline-block font-medium">tanabanabyaparna.com →</a>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
                     <span class="text-xs font-bold text-blue-500 uppercase">Handloom</span>
                     <h4 class="text-xl font-bold mt-2">Aradhya Handloom</h4>
                     <p class="text-gray-600 text-sm mt-2">E-commerce platform providing traditional sarees and kurtis.</p>
-                    <a href="https://aradhyahandloom.com" class="text-blue-600 text-sm mt-4 inline-block font-medium">aradhyahandloom.com →</a>
+                    <a href="https://aradhyahandloom.com" target="_blank" class="text-blue-600 text-sm mt-4 inline-block font-medium">aradhyahandloom.com →</a>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
                     <span class="text-xs font-bold text-blue-500 uppercase">FMCG</span>
                     <h4 class="text-xl font-bold mt-2">Fiji Water</h4>
                     <p class="text-gray-600 text-sm mt-2">Global brand site emphasizing responsible business and operations.</p>
-                    <a href="https://fijiwater.com" class="text-blue-600 text-sm mt-4 inline-block font-medium">fijiwater.com →</a>
+                    <a href="https://fijiwater.com" target="_blank" class="text-blue-600 text-sm mt-4 inline-block font-medium">fijiwater.com →</a>
                 </div> 
                 <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
                     <span class="text-xs font-bold text-blue-500 uppercase">Fragrance</span>
                     <h4 class="text-xl font-bold mt-2">Luxury Perfume</h4>
                     <p class="text-gray-600 text-sm mt-2">Premium online marketplace for perfumes and colognes.</p>
-                    <a href="https://luxuryperfume.com" class="text-blue-600 text-sm mt-4 inline-block font-medium">luxuryperfume.com →</a>
+                    <a href="https://luxuryperfume.com" target="_blank" class="text-blue-600 text-sm mt-4 inline-block font-medium">luxuryperfume.com →</a>
                 </div>
             </div>
         </section>
@@ -81,19 +108,19 @@
                     <span class="text-xs font-bold text-green-500 uppercase">Medical Tourism</span>
                     <h4 class="text-xl font-bold mt-2">Bandaari Medical</h4>
                     <p class="text-gray-600 text-sm mt-2">Leading global healthcare platform specializing in medical tourism.</p>
-                    <a href="https://bandariglobalhealthcare.com" class="text-green-600 text-sm mt-4 inline-block font-medium">bandariglobalhealthcare.com →</a>
+                    <a href="https://bandariglobalhealthcare.com" target="_blank" class="text-green-600 text-sm mt-4 inline-block font-medium">bandariglobalhealthcare.com →</a>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
                     <span class="text-xs font-bold text-green-500 uppercase">Event Management</span>
                     <h4 class="text-xl font-bold mt-2">MedTour Health</h4>
                     <p class="text-gray-600 text-sm mt-2">Movement-based healthcare expo transforming the medical landscape.</p>
-                    <a href="https://medtourhealthexpo.com" class="text-green-600 text-sm mt-4 inline-block font-medium">medtourhealthexpo.com →</a>
+                    <a href="https://medtourhealthexpo.com" target="_blank" class="text-green-600 text-sm mt-4 inline-block font-medium">medtourhealthexpo.com →</a>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
                     <span class="text-xs font-bold text-green-500 uppercase">Spa & Living</span>
                     <h4 class="text-xl font-bold mt-2">Aura Goa</h4>
                     <p class="text-gray-600 text-sm mt-2">Wellness oasis and lifestyle booking platform for high-end spa services.</p>
-                    <a href="https://auragoa.com" class="text-green-600 text-sm mt-4 inline-block font-medium">auragoa.com →</a>
+                    <a href="https://auragoa.com" target="_blank" class="text-green-600 text-sm mt-4 inline-block font-medium">auragoa.com →</a>
                 </div>
             </div>
         </section>
@@ -105,25 +132,25 @@
                     <span class="text-xs font-bold text-orange-500 uppercase">Construction</span>
                     <h4 class="text-xl font-bold mt-2">Asset Homes</h4>
                     <p class="text-gray-600 text-sm mt-2">Real estate portal for premium apartments, flats, and villas.</p>
-                    <a href="https://assethomes.in" class="text-orange-600 text-sm mt-4 inline-block font-medium">assethomes.in →</a>
+                    <a href="https://assethomes.in" target="_blank" class="text-orange-600 text-sm mt-4 inline-block font-medium">assethomes.in →</a>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
                     <span class="text-xs font-bold text-orange-500 uppercase">Rental Platform</span>
                     <h4 class="text-xl font-bold mt-2">BookMyFirstHome</h4>
                     <p class="text-gray-600 text-sm mt-2">Local platform for booking homes, houses, and apartments.</p>
-                    <a href="https://bookmyfirsthome.com" class="text-orange-600 text-sm mt-4 inline-block font-medium">bookmyfirsthome.com →</a>
+                    <a href="https://bookmyfirsthome.com" target="_blank" class="text-orange-600 text-sm mt-4 inline-block font-medium">bookmyfirsthome.com →</a>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
                     <span class="text-xs font-bold text-orange-500 uppercase">Digital Transformation</span>
                     <h4 class="text-xl font-bold mt-2">Voxtron</h4>
                     <p class="text-gray-600 text-sm mt-2">Scalable application development with over 20+ years of tech experience.</p>
-                    <a href="https://voxtronme.com" class="text-orange-600 text-sm mt-4 inline-block font-medium">voxtronme.com →</a>
+                    <a href="https://voxtronme.com" target="_blank" class="text-orange-600 text-sm mt-4 inline-block font-medium">voxtronme.com →</a>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
                     <span class="text-xs font-bold text-orange-500 uppercase">IT Services</span>
                     <h4 class="text-xl font-bold mt-2">ISYX Tech</h4>
                     <p class="text-gray-600 text-sm mt-2">Global tech solutions helping businesses impact their customers.</p>
-                    <a href="https://isyxtech.com" class="text-orange-600 text-sm mt-4 inline-block font-medium">isyxtech.com →</a>
+                    <a href="https://isyxtech.com" target="_blank" class="text-orange-600 text-sm mt-4 inline-block font-medium">isyxtech.com →</a>
                 </div>
             </div>
         </section>
