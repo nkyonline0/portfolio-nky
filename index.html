@@ -1,164 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nabin — Portfolio | Selected Work</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #222222;
-      --muted: #666666;
-      --accent: #0077ff;
-      --card-bg: #f9f9f9;
-      --border: #e0e0e0;
-      --radius: 12px;
-      --shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    a { text-decoration: none; color: var(--accent); }
-
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    header h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-    header p {
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: var(--shadow);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-    }
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 20px;
-      color: var(--accent);
-    }
-    .card p {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 12px;
-      min-height: 60px;
-    }
-    .card a {
-      display: inline-block;
-      padding: 8px 14px;
-      background: var(--accent);
-      color: #fff;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: background 0.2s ease;
-    }
-    .card a:hover { background: #005fcc; }
-
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 14px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Stack Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .project-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+    </style>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <h1>Portfolio Showcase</h1>
-      <p>A curated selection of projects across healthcare, tech, e‑commerce, hospitality, and real estate.</p>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-blue-600 underline">DEV.PORTFOLIO</h1>
+            <div class="space-x-6 hidden md:block">
+                <a href="#ecommerce" class="hover:text-blue-600">E-commerce</a>
+                <a href="#healthcare" class="hover:text-blue-600">Healthcare</a>
+                <a href="#realestate" class="hover:text-blue-600">Real Estate</a>
+                <a href="#tech" class="hover:text-blue-600">Enterprise</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-20 bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-5xl font-extrabold mb-4">Full-Stack Solutions Architect</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Specializing in scalable web applications, from luxury retail to healthcare ecosystems. 
+                Proven track record with 18+ global deployments.
+            </p>
+            <div class="mt-8 flex justify-center gap-4">
+                <button class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">View Resume</button>
+                <button class="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50">Contact Me</button>
+            </div>
+        </div>
     </header>
 
-    <main class="grid">
-      <div class="card">
-        <h3>Bandaari Medical Services</h3>
-        <p>Leader in medical tourism, connecting patients with trusted global healthcare providers.</p>
-        <a href="https://bandariglobalhealthcare.com" target="_blank">Visit Site</a>
-      </div>
+    <main class="max-w-7xl mx-auto px-4 py-12">
 
-      <div class="card">
-        <h3>Brother Printer Service</h3>
-        <p>Specialized printer service center with expert solutions for toner cartridges and maintenance.</p>
-        <a href="https://brotherprinterservicecenter.com" target="_blank">Visit Site</a>
-      </div>
+        <section id="ecommerce" class="mb-20">
+            <h3 class="text-3xl font-bold mb-8 border-l-4 border-blue-600 pl-4">E-commerce & Luxury Retail</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <span class="text-xs font-bold text-blue-500 uppercase">Clothing</span>
+                    <h4 class="text-xl font-bold mt-2">Tanabana by Aparna</h4>
+                    <p class="text-gray-600 text-sm mt-2">Custom handmade clothing store with a focus on unique shopping experiences.</p>
+                    <a href="https://tanabanabyaparna.com" class="text-blue-600 text-sm mt-4 inline-block font-medium">tanabanabyaparna.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <span class="text-xs font-bold text-blue-500 uppercase">Handloom</span>
+                    <h4 class="text-xl font-bold mt-2">Aradhya Handloom</h4>
+                    <p class="text-gray-600 text-sm mt-2">E-commerce platform providing traditional sarees and kurtis.</p>
+                    <a href="https://aradhyahandloom.com" class="text-blue-600 text-sm mt-4 inline-block font-medium">aradhyahandloom.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <span class="text-xs font-bold text-blue-500 uppercase">FMCG</span>
+                    <h4 class="text-xl font-bold mt-2">Fiji Water</h4>
+                    <p class="text-gray-600 text-sm mt-2">Global brand site emphasizing responsible business and operations.</p>
+                    <a href="https://fijiwater.com" class="text-blue-600 text-sm mt-4 inline-block font-medium">fijiwater.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <span class="text-xs font-bold text-blue-500 uppercase">Retail</span>
+                    <h4 class="text-xl font-bold mt-2">Brand Basket</h4>
+                    <p class="text-gray-600 text-sm mt-2">Consumer brand aggregator for the best products available online.</p>
+                    <a href="https://brandbasket.store" class="text-blue-600 text-sm mt-4 inline-block font-medium">brandbasket.store →</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <span class="text-xs font-bold text-blue-500 uppercase">Fragrance</span>
+                    <h4 class="text-xl font-bold mt-2">Luxury Perfume</h4>
+                    <p class="text-gray-600 text-sm mt-2">Premium online marketplace for perfumes and colognes.</p>
+                    <a href="https://luxuryperfume.com" class="text-blue-600 text-sm mt-4 inline-block font-medium">luxuryperfume.com →</a>
+                </div>
+            </div>
+        </section>
 
-      <div class="card">
-        <h3>Tanabana by Aparna</h3>
-        <p>Handmade clothing and lifestyle items offering a unique artisan shopping experience.</p>
-        <a href="https://tanabanabyaparna.com" target="_blank">Visit Site</a>
-      </div>
+        <section id="healthcare" class="mb-20">
+            <h3 class="text-3xl font-bold mb-8 border-l-4 border-green-600 pl-4">Healthcare & Wellness</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <span class="text-xs font-bold text-green-500 uppercase">Medical Tourism</span>
+                    <h4 class="text-xl font-bold mt-2">Bandaari Medical</h4>
+                    <p class="text-gray-600 text-sm mt-2">Leading global healthcare platform specializing in medical tourism.</p>
+                    <a href="https://bandariglobalhealthcare.com" class="text-green-600 text-sm mt-4 inline-block font-medium">bandariglobalhealthcare.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <span class="text-xs font-bold text-green-500 uppercase">Event Management</span>
+                    <h4 class="text-xl font-bold mt-2">MedTour Health</h4>
+                    <p class="text-gray-600 text-sm mt-2">Movement-based healthcare expo transforming the medical landscape.</p>
+                    <a href="https://medtourhealthexpo.com" class="text-green-600 text-sm mt-4 inline-block font-medium">medtourhealthexpo.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <span class="text-xs font-bold text-green-500 uppercase">Spa & Living</span>
+                    <h4 class="text-xl font-bold mt-2">Aura Goa</h4>
+                    <p class="text-gray-600 text-sm mt-2">Wellness oasis and lifestyle booking platform for high-end spa services.</p>
+                    <a href="https://auragoa.com" class="text-green-600 text-sm mt-4 inline-block font-medium">auragoa.com →</a>
+                </div>
+            </div>
+        </section>
 
-      <div class="card">
-        <h3>Aradhyahandloom</h3>
-        <p>E‑commerce brand for ethnic wear including sarees, kurtis, and traditional apparel.</p>
-        <a href="https://aradhyahandloom.com" target="_blank">Visit Site</a>
-      </div>
+        <section id="realestate" class="mb-20">
+            <h3 class="text-3xl font-bold mb-8 border-l-4 border-orange-600 pl-4">Real Estate & Tech Solutions</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <span class="text-xs font-bold text-orange-500 uppercase">Construction</span>
+                    <h4 class="text-xl font-bold mt-2">Asset Homes</h4>
+                    <p class="text-gray-600 text-sm mt-2">Real estate portal for premium apartments, flats, and villas.</p>
+                    <a href="https://assethomes.in" class="text-orange-600 text-sm mt-4 inline-block font-medium">assethomes.in →</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <span class="text-xs font-bold text-orange-500 uppercase">Rental Platform</span>
+                    <h4 class="text-xl font-bold mt-2">BookMyFirstHome</h4>
+                    <p class="text-gray-600 text-sm mt-2">Local platform for booking homes, houses, and apartments.</p>
+                    <a href="https://bookmyfirsthome.com" class="text-orange-600 text-sm mt-4 inline-block font-medium">bookmyfirsthome.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <span class="text-xs font-bold text-orange-500 uppercase">Digital Transformation</span>
+                    <h4 class="text-xl font-bold mt-2">Voxtron</h4>
+                    <p class="text-gray-600 text-sm mt-2">Scalable application development with over 20+ years of tech experience.</p>
+                    <a href="https://voxtronme.com" class="text-orange-600 text-sm mt-4 inline-block font-medium">voxtronme.com →</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <span class="text-xs font-bold text-orange-500 uppercase">IT Services</span>
+                    <h4 class="text-xl font-bold mt-2">ISYX Tech</h4>
+                    <p class="text-gray-600 text-sm mt-2">Global tech solutions helping businesses impact their customers.</p>
+                    <a href="https://isyxtech.com" class="text-orange-600 text-sm mt-4 inline-block font-medium">isyxtech.com →</a>
+                </div>
+            </div>
+        </section>
 
-      <div class="card">
-        <h3>FIJI Water</h3>
-        <p>Global beverage brand committed to sustainability and responsible business practices.</p>
-        <a href="https://fijiwater.com" target="_blank">Visit Site</a>
-      </div>
-
-      <div class="card">
-        <h3>Asset Homes</h3>
-        <p>Real estate developer offering premium apartments, flats, and villas with modern amenities.</p>
-        <a href="https://assethomes.in" target="_blank">Visit Site</a>
-      </div>
-
-      <div class="card">
-        <h3>Magzon India</h3>
-        <p>Fertilizer solutions for soil health, fungus control, and sustainable agriculture practices.</p>
-        <a href="https://magzonindia.com" target="_blank">Visit Site</a>
-      </div>
-
-      <div class="card">
-        <h3>ISYX Tech</h3>
-        <p>Global technology solutions provider helping businesses deliver impactful customer experiences.</p>
-        <a href="https://isyxtech.com" target="_blank">Visit Site</a>
-      </div>
-
-      <div class="card">
-        <h3>Hotel Prince</h3>
-        <p>Hospitality services in Odisha offering comfortable stays and customer‑focused amenities.</p>
-        <a href="https://hotelprince.in" target="_blank">Visit Site</a>
-      </div>
     </main>
 
-    <footer>
-      © 2025 Nabin — Portfolio Showcase. Built with passion for clean design and modern web.
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-4">Let's build your next project.</h3>
+            <p class="text-gray-400 mb-8">Expert in MERN, PHP/Laravel, and Modern CSS Frameworks.</p>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="#" class="text-2xl hover:text-blue-400"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-2xl hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-2xl hover:text-blue-400"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm">© 2024 Your Name. All project descriptions and URLs provided by clients.</p>
+        </div>
     </footer>
-  </div>
+
 </body>
 </html>
