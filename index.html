@@ -3,21 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Development and IT Portfolio </title> 
+    <title>Development and IT Portfolio </title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <style>
-        .project-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
-        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; background-color: #ffffff; scroll-behavior: smooth; }
+
+        /* Project Card Container */
+        .project-wrapper {
+            position: relative;
+            height: 480px;
+            border-radius: 24px;
+            overflow: hidden;
+            background-color: #f3f4f6;
+            transition: all 0.5s ease;
+            border: 1px solid #f1f5f9;
+        }
+
+        /* Clear Site Image */
+        .site-view {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        /* Glass Info Card - High Visibility */
+        .glass-tab {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 18px;
+            transition: all 0.4s ease;
+        }
+
+        .project-wrapper:hover .site-view {
+            transform: scale(1.08);
+        }
+
+        .project-wrapper:hover .glass-tab {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+            bottom: 20px;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #2563eb;
+            border-radius: 2px;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="text-slate-900">
 
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-bold text-blue-600 underline">PORTFOLIO</h1>
-            <div class="space-x-6 hidden md:block">
-                <a href="#react" class="hover:text-blue-600">React Projects</a>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-2xl font-black tracking-tighter text-blue-600">PORTFOLIO<span class="text-slate-300">.</span></span>
+            <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <a href="#react" class="hover:text-blue-600">React</a>
                 <a href="#ecommerce" class="hover:text-blue-600">E-commerce</a>
                 <a href="#healthcare" class="hover:text-blue-600">Healthcare</a>
                 <a href="#realestate" class="hover:text-blue-600">Real Estate</a>
@@ -25,145 +88,202 @@
         </div>
     </nav>
 
-    <header class="py-20 bg-white border-b">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-5xl font-extrabold mb-4"> Development and IT Portfolio  </h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+    <header class="py-24 px-6 bg-slate-50">
+        <div class="max-w-5xl mx-auto text-center" data-aos="fade-up">
+            <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">  <span class="text-blue-600">Development and IT Head </span></h2>
+            <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-10">
                 Specializing in scalable web applications, from luxury retail to healthcare ecosystems. 
-                Proven track record with 6+ Years Experience as Fullstack deployments.
+                Proven track record with 5+ Years Experience in Raipur.
             </p>
-            <div class="mt-8 flex justify-center gap-4">
-                <a href="https://drive.google.com/file/d/1hWjaWA-dDn3SjXmMQWIaLTrv8SJcr6uh/view?usp=sharing" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
-                    View Resume
-                </a>
-                <a href="mailto:nkydocs@gmail.com" class="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition duration-300">
-                    Contact Me
-                </a>
+            <div class="flex justify-center gap-4">
+                <a href="mailto:nkydocs@gmail.com" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition">Contact Me</a>
+                <a href="https://drive.google.com/file/d/1chNAA5B6svyFSMdS1GGFMSqAiPxn2pbJ/view?usp=sharing" target="_blank" class="border border-slate-200 bg-white px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition">View CV</a>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-12">
+    <main class="max-w-7xl mx-auto px-6 py-20">
 
-        <section id="react" class="mb-20">
-            <h3 class="text-3xl font-bold mb-8 border-l-4 border-cyan-500 pl-4">React Framework Projects</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-cyan-100 ring-1 ring-cyan-50">
-                    <span class="text-xs font-bold text-cyan-600 uppercase tracking-widest">Fintech • React.js</span>
-                    <h4 class="text-xl font-bold mt-2">Goldexa</h4>
-                    <p class="text-gray-600 text-sm mt-2">A high-performance platform for buying and selling gold. Features real-time price tracking and secure business transactions.</p>
-                    <a href="https://goldexa.in" target="_blank" class="text-cyan-600 text-sm mt-4 inline-block font-medium hover:underline">goldexa.in →</a>
+        <section id="react" class="mb-32">
+            <h3 class="text-4xl font-extrabold section-title" data-aos="fade-right">React Framework Projects</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="project-wrapper" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1624365168785-c65be9114821?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+                    <div class="glass-tab">
+                        <span class="text-blue-600 font-bold text-[10px] uppercase tracking-widest">Fintech</span>
+                        <h4 class="text-xl font-bold">Goldexa</h4>
+                        <p class="text-slate-500 text-sm mb-4">Real-time gold trading platform.</p>
+                        <a href="https://binfinit.co/" target="_blank" class="text-blue-600 font-bold text-sm">Visit Site →</a>
+                    </div>
+                </div>
+                <div class="project-wrapper" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+                    <div class="glass-tab">
+                        <span class="text-blue-600 font-bold text-[10px] uppercase tracking-widest">B2B E-commerce</span>
+                        <h4 class="text-xl font-bold">PC World Raipur</h4>
+                        <p class="text-slate-500 text-sm mb-4">IT Inventory & Distribution.</p>
+                        <a href="https://pcworldraipur.in" target="_blank" class="text-blue-600 font-bold text-sm">Visit Site →</a>
+                    </div>
+                </div>
+                <div class="project-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+                    <div class="glass-tab">
+                        <span class="text-blue-600 font-bold text-[10px] uppercase tracking-widest">Dr. Arpit Bansal</span>
+                        <h4 class="text-xl font-bold">Drarpitbansal</h4>
+                        <p class="text-slate-500 text-sm mb-4">Surgeon | Healthcare</p>
+                        <a href="https://drarpitbansal.in/" target="_blank" class="text-blue-600 font-bold text-sm">Visit Site →</a>
+                    </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-cyan-100 ring-1 ring-cyan-50">
-                    <span class="text-xs font-bold text-cyan-600 uppercase tracking-widest">B2B E-commerce • React.js</span>
-                    <h4 class="text-xl font-bold mt-2">PC World Raipur</h4>
-                    <p class="text-gray-600 text-sm mt-2">National B2B supplier platform based in Raipur. Managed large-scale inventory and national distribution logistics.</p>
-                    <a href="https://pcworldraipur.in" target="_blank" class="text-cyan-600 text-sm mt-4 inline-block font-medium hover:underline">pcworldraipur.in →</a>
+
+                <div class="project-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://ik.imagekit.io/filennky/Portfolio/allpics/photo-1713127563336-666289e1bd5f.webp" class="site-view">
+                    <div class="glass-tab">
+                        <span class="text-blue-600 font-bold text-[10px] uppercase tracking-widest">Binfinit </span>
+                        <h4 class="text-xl font-bold"> Logistics & Commodities </h4>
+                        <p class="text-slate-500 text-sm mb-4">Binfinit is a global commodity powerhouse</p>
+                        <a href="https://binfinit.co/" target="_blank" class="text-blue-600 font-bold text-sm">Visit Site →</a>
+                    </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-cyan-100 ring-1 ring-cyan-50">
-                    <span class="text-xs font-bold text-cyan-600 uppercase tracking-widest">Legal-Tech • React.js</span>
-                    <h4 class="text-xl font-bold mt-2">Razorfile</h4>
-                    <p class="text-gray-600 text-sm mt-2">A professional company registration site streamlining legal filings and business formations through a seamless digital workflow.</p>
-                    <a href="https://razorfile.com/" target="_blank" class="text-cyan-600 text-sm mt-4 inline-block font-medium hover:underline">razorfile.com →</a>
-                </div>
             </div>
         </section>
 
-        <section id="ecommerce" class="mb-20">
-            <h3 class="text-3xl font-bold mb-8 border-l-4 border-blue-600 pl-4">E-commerce & Luxury Retail</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
-                    <span class="text-xs font-bold text-blue-500 uppercase">Clothing</span>
-                    <h4 class="text-xl font-bold mt-2">Tanabana by Aparna</h4>
-                    <p class="text-gray-600 text-sm mt-2">Custom handmade clothing store with a focus on unique shopping experiences.</p>
-                    <a href="https://tanabanabyaparna.com" target="_blank" class="text-blue-600 text-sm mt-4 inline-block font-medium">tanabanabyaparna.com →</a>
+        <section id="ecommerce" class="mb-32">
+            <h3 class="text-4xl font-extrabold section-title" data-aos="fade-right">E-commerce & Luxury</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="project-wrapper h-[400px]" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1520006403909-838d6b92c22e?auto=format&fit=crop&q=80&w=800" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold">Tanabana</h4>
+                        <a href="https://tanabanabyaparna.com" target="_blank" class="text-xs text-blue-600 font-bold">Handmade Clothing | Visit Website →</a>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
-                    <span class="text-xs font-bold text-blue-500 uppercase">Handloom</span>
-                    <h4 class="text-xl font-bold mt-2">Aradhya Handloom</h4>
-                    <p class="text-gray-600 text-sm mt-2">E-commerce platform providing traditional sarees and kurtis.</p>
-                    <a href="https://aradhyahandloom.com" target="_blank" class="text-blue-600 text-sm mt-4 inline-block font-medium">aradhyahandloom.com →</a>
+                 
+                <div class="project-wrapper h-[400px]" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold">Fiji Water</h4>
+                        <a href="https://fijiwater.com" target="_blank" class="text-xs text-blue-600 font-bold">Global Brand | Visit Website→</a>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
-                    <span class="text-xs font-bold text-blue-500 uppercase">FMCG</span>
-                    <h4 class="text-xl font-bold mt-2">Fiji Water</h4>
-                    <p class="text-gray-600 text-sm mt-2">Global brand site emphasizing responsible business and operations.</p>
-                    <a href="https://fijiwater.com" target="_blank" class="text-blue-600 text-sm mt-4 inline-block font-medium">fijiwater.com →</a>
-                </div> 
-                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
-                    <span class="text-xs font-bold text-blue-500 uppercase">Fragrance</span>
-                    <h4 class="text-xl font-bold mt-2">Luxury Perfume</h4>
-                    <p class="text-gray-600 text-sm mt-2">Premium online marketplace for perfumes and colognes.</p>
-                    <a href="https://luxuryperfume.com" target="_blank" class="text-blue-600 text-sm mt-4 inline-block font-medium">luxuryperfume.com →</a>
+                <div class="project-wrapper h-[400px]" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=800" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold">Luxury Perfume</h4>
+                        <a href="https://luxuryperfume.com" target="_blank" class="text-xs text-blue-600 font-bold">Marketplace | Visit Website →</a>
+                    </div>
                 </div>
+
+                  <div class="project-wrapper h-[400px]" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold">Arabian Tea
+</h4>
+                        <a href="https://arabiantea.in/" target="_blank" class="text-xs text-blue-600 font-bold">  Visit Website →</a>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <section id="healthcare" class="mb-20">
-            <h3 class="text-3xl font-bold mb-8 border-l-4 border-green-600 pl-4">Healthcare & Wellness</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
-                    <span class="text-xs font-bold text-green-500 uppercase">Medical Tourism</span>
-                    <h4 class="text-xl font-bold mt-2">Bandaari Medical</h4>
-                    <p class="text-gray-600 text-sm mt-2">Leading global healthcare platform specializing in medical tourism.</p>
-                    <a href="https://bandariglobalhealthcare.com" target="_blank" class="text-green-600 text-sm mt-4 inline-block font-medium">bandariglobalhealthcare.com →</a>
+        <section id="healthcare" class="mb-32">
+            <h3 class="text-4xl font-extrabold section-title" data-aos="fade-right">Healthcare & Wellness</h3>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="project-wrapper" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold">Bandaari Medical</h4>
+                        <p class="text-xs text-slate-500 mb-3">Global Medical Tourism</p>
+                        <a href="https://bandariglobalhealthcare.com" target="_blank" class="text-sm text-blue-600 font-bold">Visit Site</a>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
-                    <span class="text-xs font-bold text-green-500 uppercase">Event Management</span>
-                    <h4 class="text-xl font-bold mt-2">MedTour Health</h4>
-                    <p class="text-gray-600 text-sm mt-2">Movement-based healthcare expo transforming the medical landscape.</p>
-                    <a href="https://medtourhealthexpo.com" target="_blank" class="text-green-600 text-sm mt-4 inline-block font-medium">medtourhealthexpo.com →</a>
+                <div class="project-wrapper" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?q=80&w=879&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold">Thaiger Pharma </h4>
+                        <p class="text-xs text-slate-500 mb-3">Pharmaceutical </p>
+                        <a href="https://thaiger-pharma.com/" target="_blank" class="text-sm text-blue-600 font-bold">Visit Site</a>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
-                    <span class="text-xs font-bold text-green-500 uppercase">Spa & Living</span>
-                    <h4 class="text-xl font-bold mt-2">Aura Goa</h4>
-                    <p class="text-gray-600 text-sm mt-2">Wellness oasis and lifestyle booking platform for high-end spa services.</p>
-                    <a href="https://auragoa.com" target="_blank" class="text-green-600 text-sm mt-4 inline-block font-medium">auragoa.com →</a>
+                
+                <div class="project-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1631248055158-edec7a3c072b?q=80&w=861&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold">Golden Ratio Clinic </h4>
+                        <p class="text-xs text-slate-500 mb-3">Golden Ratio Plastic Surgery Clinic</p>
+                        <a href="https://goldenratioclinic.ie/" target="_blank" class="text-sm text-blue-600 font-bold">Visit Site</a>
+                    </div> 
+ 
                 </div>
+
+                 <div class="project-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://ik.imagekit.io/filennky/Portfolio/allpics/photo-1498837167922-ddd27525d352.webp" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold"> Healthcare & Nutrition</h4>
+                        <p class="text-xs text-slate-500 mb-3">Sidhipurnanutrition </p>
+                        <a href="https://sidhipurnanutrition.com/" target="_blank" class="text-sm text-blue-600 font-bold">Visit Site</a>
+                    </div> 
+ 
+                </div>
+
+                
             </div>
         </section>
 
-        <section id="realestate" class="mb-20">
-            <h3 class="text-3xl font-bold mb-8 border-l-4 border-orange-600 pl-4">Real Estate & Tech Solutions</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
-                    <span class="text-xs font-bold text-orange-500 uppercase">Construction</span>
-                    <h4 class="text-xl font-bold mt-2">Asset Homes</h4>
-                    <p class="text-gray-600 text-sm mt-2">Real estate portal for premium apartments, flats, and villas.</p>
-                    <a href="https://assethomes.in" target="_blank" class="text-orange-600 text-sm mt-4 inline-block font-medium">assethomes.in →</a>
+        <section id="realestate" class="mb-32">
+            <h3 class="text-4xl font-extrabold section-title" data-aos="fade-right">Real Estate, Tech and Hotels </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="project-wrapper h-[400px]" data-aos="flip-left">
+                    <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&q=80&w=800" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold">Asset Homes</h4>
+                        <a href="https://assethomes.in" target="_blank" class="text-xs text-blue-600 font-bold">Premium Living →</a>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
-                    <span class="text-xs font-bold text-orange-500 uppercase">Rental Platform</span>
-                    <h4 class="text-xl font-bold mt-2">BookMyFirstHome</h4>
-                    <p class="text-gray-600 text-sm mt-2">Local platform for booking homes, houses, and apartments.</p>
-                    <a href="https://bookmyfirsthome.com" target="_blank" class="text-orange-600 text-sm mt-4 inline-block font-medium">bookmyfirsthome.com →</a>
+                <div class="project-wrapper h-[400px]" data-aos="flip-left" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold">BookMyFirstHome</h4>
+                        <a href="https://bookmyfirsthome.com" target="_blank" class="text-xs text-blue-600 font-bold">Rental Platform →</a>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
-                    <span class="text-xs font-bold text-orange-500 uppercase">Digital Transformation</span>
-                    <h4 class="text-xl font-bold mt-2">Voxtron</h4>
-                    <p class="text-gray-600 text-sm mt-2">Scalable application development with over 20+ years of tech experience.</p>
-                    <a href="https://voxtronme.com" target="_blank" class="text-orange-600 text-sm mt-4 inline-block font-medium">voxtronme.com →</a>
+               <div class="project-wrapper h-[400px]" data-aos="flip-left" data-aos-delay="300">
+                    <img src="https://plus.unsplash.com/premium_photo-1661964071015-d97428970584?q=80&w=1020&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold"> Hotel Prince </h4>
+                        <a href="https://hotelprince.in/" target="_blank" class="text-xs text-blue-600 font-bold"> Visit Website →</a>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
-                    <span class="text-xs font-bold text-orange-500 uppercase">IT Services</span>
-                    <h4 class="text-xl font-bold mt-2">ISYX Tech</h4>
-                    <p class="text-gray-600 text-sm mt-2">Global tech solutions helping businesses impact their customers.</p>
-                    <a href="https://isyxtech.com" target="_blank" class="text-orange-600 text-sm mt-4 inline-block font-medium">isyxtech.com →</a>
+                <div class="project-wrapper h-[400px]" data-aos="flip-left" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold"> Dawsons Tech </h4>
+                        <a href="https://dawsonstech.com/" target="_blank" class="text-xs text-blue-600 font-bold">Visit Website →</a>
+                    </div>
                 </div>
+
+                 
+
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h3 class="text-2xl font-bold mb-4">Thanks for visiting</h3>
-            <p class="text-gray-400 mb-6">Let's build something amazing together.</p>
-            <a href="mailto:nkydocs@gmail.com" class="text-blue-400 hover:underline">nkydocs@gmail.com</a>
+    <footer class="bg-slate-900 text-white py-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-4xl font-bold mb-6">Building Something Great Together </h3>
+            <a href="mailto:nkydocs@gmail.com" class="text-2xl font-light text-blue-400 border-b border-blue-400 pb-1">nkydocs@gmail.com</a>
+            <div class="mt-12 flex justify-center gap-8 text-xs font-bold text-slate-500 tracking-[0.3em]">
+                <span>FULLSTACK</span>
+                <span>UI/UX</span>
+                <span>DEVOPS</span>
+            </div>
         </div>
     </footer>
 
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
 </body>
 </html>
