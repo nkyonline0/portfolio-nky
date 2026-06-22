@@ -356,7 +356,6 @@
             </div>
         </section>
 
-        <!-- --- APPLICATION PROJECT WORK SECTION WITH DIRECT SYSTEM ROUTING --- -->
         <section id="apps" class="mb-32 md:mb-56 target-section">
             <h3 class="text-3xl md:text-4xl font-extrabold section-title" data-aos="fade-right">📲 Application Project Work</h3>
             <div class="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-10 lg:gap-12 no-scrollbar snap-x snap-mandatory pb-6 -mx-6 px-6 md:mx-0 md:px-0">
@@ -439,6 +438,7 @@
             }
         });
 
+        // Safe utility to return scroll focus cleanly to top
         function scrollToTop() {
             document.getElementById('top-anchor').scrollIntoView({ behavior: 'smooth' });
         }
@@ -474,22 +474,29 @@
 
         sections.forEach(section => observer.observe(section));
 
-        // INTERCEPT ROUTING DEPENDING ON END-USER HARDWARE ENVIRONMENT
+        // INTERCEPT ROUTING TO BYPASS EMBEDDED SYSTEM WEBVIEWS 
         document.querySelectorAll('.smart-app-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // Inspect user agent data flags
-                const isMobile = /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent) || window.innerWidth < 768;
+                const desktopUrl = this.getAttribute('data-desktop-href');
+                const mobileIntent = this.getAttribute('href');
                 
-                if (!isMobile) {
-                    // DESKTOP: Launch explicit clean web viewport tab instance
-                    const desktopUrl = this.getAttribute('data-desktop-href');
+                // Detailed environment profile diagnostic inspection
+                const isMobileDevice = /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent) || window.innerWidth < 768;
+                
+                if (!isMobileDevice) {
+                    // DESKTOP PIPELINES: Explicit separate tab layer runtime
                     window.open(desktopUrl, '_blank', 'noopener,noreferrer');
                 } else {
-                    // MOBILE SYSTEMS: Explicitly pipe intent directly to system services layer
-                    const mobileIntent = this.getAttribute('href');
-                    window.location.href = mobileIntent;
+                    // MOBILE SYSTEMS: Explicitly route link to a clean external window context
+                    // Using '_system' or fallback window.open forces external default system browsers
+                    window.open(desktopUrl, '_system');
+                    
+                    // Fallback execution to route the application package intent string if preferred by OS
+                    setTimeout(() => {
+                        window.location.href = mobileIntent;
+                    }, 50);
                 }
             });
         });
