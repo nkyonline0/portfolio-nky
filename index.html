@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Development and IT Portfolio </title>
+    <title>Development and IT Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -12,15 +12,44 @@
     <style>
         body { font-family: 'Outfit', sans-serif; background-color: #ffffff; scroll-behavior: smooth; }
 
+        /* --- FIRST SECTION ONLY: Animated Gradient & Floating Frosted Glass --- */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes softFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animated-hero-bg {
+            background: linear-gradient(-45deg, #1e3a8a, #2563eb, #4f46e5, #0284c7);
+            background-size: 400% 400%;
+            animation: gradientMove 12s ease infinite;
+        }
+
+        .glass-hero-panel {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: softFloat 6s ease-in-out infinite;
+        }
+        /* --------------------------------------------------------------------- */
+
         /* Project Card Container */
         .project-wrapper {
             position: relative;
-            height: 480px;
+            height: 440px;
             border-radius: 24px;
             overflow: hidden;
             background-color: #f3f4f6;
             transition: all 0.5s ease;
             border: 1px solid #f1f5f9;
+            width: 100%;
         }
 
         /* Clear Site Image */
@@ -31,7 +60,7 @@
             transition: transform 0.8s ease;
         }
 
-        /* Glass Info Card - High Visibility */
+        /* Glass Info Tab Inside Project Cards */
         .glass-tab {
             position: absolute;
             bottom: 15px;
@@ -59,7 +88,7 @@
         .section-title {
             position: relative;
             display: inline-block;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .section-title::after {
@@ -72,43 +101,99 @@
             background: #2563eb;
             border-radius: 2px;
         }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #2563eb;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .nav-link.active-menu {
+            color: #2563eb !important;
+        }
+        .nav-link.active-menu::after {
+            transform: scaleX(1);
+        }
+
+        /* --- BACK TO TOP RADAR PULSE ANIMATION --- */
+        @keyframes radarPulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 0.4; }
+            100% { transform: scale(1.35); opacity: 0; }
+        }
+        .pulse-ring {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border-radius: 50%;
+            background-color: rgba(37, 99, 235, 0.4);
+            animation: radarPulse 2s infinite ease-out;
+            pointer-events: none;
+        }
     </style>
 </head>
-<body class="text-slate-900">
+<body class="text-slate-900 relative">
+
+    <div id="top-anchor"></div>
 
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-2xl font-black tracking-tighter text-blue-600">PORTFOLIO<span class="text-slate-300">.</span></span>
-            <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-slate-500">
-                <a href="#react" class="hover:text-blue-600">React</a>
-                <a href="#ecommerce" class="hover:text-blue-600">E-commerce</a>
-                <a href="#healthcare" class="hover:text-blue-600">Healthcare</a>
-                <a href="#realestate" class="hover:text-blue-600">Real Estate</a>
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex flex-col md:flex-row justify-between items-center gap-3">
+            <div class="flex justify-between items-center w-full md:w-auto">
+                <span class="text-2xl font-black tracking-tighter text-blue-600">PORTFOLIO<span class="text-slate-300">.</span></span>
+            </div>
+            
+            <div id="nav-container" class="w-full md:w-auto flex overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory md:overflow-visible -mx-4 px-4 md:mx-0 md:px-0">
+                <div class="flex space-x-6 md:space-x-8 text-[11px] md:text-xs font-bold uppercase tracking-widest text-slate-500 whitespace-nowrap py-1">
+                    <a href="#react" class="nav-link snap-center hover:text-blue-600">💻⚛React</a>
+                    <a href="#ecommerce" class="nav-link snap-center hover:text-blue-600">🛍️E-commerce</a>
+                    <a href="#healthcare" class="nav-link snap-center hover:text-blue-600">🩺Healthcare</a>
+                    <a href="#realestate" class="nav-link snap-center hover:text-blue-600">🏠Real Estate</a>
+                    <a href="#apps" class="nav-link snap-center hover:text-blue-600">📲Application Projects</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <header class="py-24 px-6 bg-slate-50">
-        <div class="max-w-5xl mx-auto text-center" data-aos="fade-up">
-            <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">  <span class="text-blue-600">Development and IT Head </span></h2>
-            <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-10">
+    <header class="animated-hero-bg min-h-[85vh] md:min-h-[75vh] flex items-center justify-center px-4 py-16 md:py-24 relative overflow-hidden">
+        <div class="max-w-4xl w-full mx-auto text-center glass-hero-panel p-8 md:p-16 rounded-[32px]" data-aos="zoom-in">
+            <h2 class="text-3xl md:text-6xl font-black tracking-tight mb-6 text-white drop-shadow-sm">
+                Development and IT Head
+            </h2>
+            <p class="text-base md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed mb-10 font-medium">
                 Specializing in scalable web applications, from luxury retail to healthcare ecosystems. 
                 Proven track record with 5+ Years Experience.
             </p>
-            <div class="flex justify-center gap-4">
-                <a href="mailto:nkydocs@gmail.com" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition">Contact Me</a>
-                <a href="https://drive.google.com/file/d/1EAZ9vFkQh-KSYbQxQTxf3M4Pn7HXozea/view?usp=sharing" target="_blank" class="border border-slate-200 bg-white px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition">View CV</a>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="mailto:nkydocs@gmail.com" class="w-full sm:w-auto bg-white text-blue-600 px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-slate-50 transition transform hover:-translate-y-0.5">Contact Me</a>
+                <a href="https://drive.google.com/file/d/1EAZ9vFkQh-KSYbQxQTxf3M4Pn7HXozea/view?usp=sharing" target="_blank" class="w-full sm:w-auto border border-white/40 bg-white/10 text-white backdrop-blur-md px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition transform hover:-translate-y-0.5">View CV</a>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-20">
+    <main class="max-w-7xl mx-auto px-6 py-12 md:py-24 overflow-hidden">
 
-        <section id="react" class="mb-32">
-            <h3 class="text-4xl font-extrabold section-title" data-aos="fade-right">React Framework Projects</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="project-wrapper" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1624365168785-c65be9114821?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+        <section id="react" class="mb-32 md:mb-56 target-section">
+            <h3 class="text-3xl md:text-4xl font-extrabold section-title" data-aos="fade-right">💻⚛React Framework Projects</h3>
+            <div class="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-10 lg:gap-12 no-scrollbar snap-x snap-mandatory pb-6 -mx-6 px-6 md:mx-0 md:px-0">
+                
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1624365168785-c65be9114821?q=80&w=870&auto=format&fit=crop" class="site-view">
                     <div class="glass-tab">
                         <span class="text-blue-600 font-bold text-[10px] uppercase tracking-widest">Fintech</span>
                         <h4 class="text-xl font-bold">Goldexa</h4>
@@ -116,8 +201,9 @@
                         <a href="https://goldexa.in/" target="_blank" class="text-blue-600 font-bold text-sm">Visit Site →</a>
                     </div>
                 </div>
-                <div class="project-wrapper" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=870&auto=format&fit=crop" class="site-view">
                     <div class="glass-tab">
                         <span class="text-blue-600 font-bold text-[10px] uppercase tracking-widest">B2B E-commerce</span>
                         <h4 class="text-xl font-bold">PC World Raipur</h4>
@@ -125,8 +211,9 @@
                         <a href="https://pcworldraipur.in" target="_blank" class="text-blue-600 font-bold text-sm">Visit Site →</a>
                     </div>
                 </div>
-                <div class="project-wrapper" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1032&auto=format&fit=crop" class="site-view">
                     <div class="glass-tab">
                         <span class="text-blue-600 font-bold text-[10px] uppercase tracking-widest">Dr. Arpit Bansal</span>
                         <h4 class="text-xl font-bold">Drarpitbansal</h4>
@@ -135,13 +222,12 @@
                     </div>
                 </div>
 
-
-                <div class="project-wrapper" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="fade-up" data-aos-delay="300">
                     <img src="https://ik.imagekit.io/filennky/Portfolio/allpics/photo-1713127563336-666289e1bd5f.webp" class="site-view">
                     <div class="glass-tab">
-                        <span class="text-blue-600 font-bold text-[10px] uppercase tracking-widest">Binfinit </span>
-                        <h4 class="text-xl font-bold"> Logistics & Commodities </h4>
-                        <p class="text-slate-500 text-sm mb-4">Binfinit is a global commodity powerhouse</p>
+                        <span class="text-blue-600 font-bold text-[10px] uppercase tracking-widest">Binfinit</span>
+                        <h4 class="text-xl font-bold">Logistics & Commodities</h4>
+                        <p class="text-slate-500 text-sm mb-4">Global commodity powerhouse.</p>
                         <a href="https://binfinit.co/" target="_blank" class="text-blue-600 font-bold text-sm">Visit Site →</a>
                     </div>
                 </div>
@@ -149,10 +235,11 @@
             </div>
         </section>
 
-        <section id="ecommerce" class="mb-32">
-            <h3 class="text-4xl font-extrabold section-title" data-aos="fade-right">E-commerce & Luxury</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="project-wrapper h-[400px]" data-aos="zoom-in">
+        <section id="ecommerce" class="mb-32 md:mb-56 target-section">
+            <h3 class="text-3xl md:text-4xl font-extrabold section-title" data-aos="fade-right">🛍️E-commerce & Luxury</h3>
+            <div class="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-10 lg:gap-12 no-scrollbar snap-x snap-mandatory pb-6 -mx-6 px-6 md:mx-0 md:px-0">
+                
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="zoom-in">
                     <img src="https://images.unsplash.com/photo-1520006403909-838d6b92c22e?auto=format&fit=crop&q=80&w=800" class="site-view">
                     <div class="glass-tab">
                         <h4 class="font-bold">Tanabana</h4>
@@ -160,14 +247,15 @@
                     </div>
                 </div>
                  
-                <div class="project-wrapper h-[400px]" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=870&auto=format&fit=crop" class="site-view">
                     <div class="glass-tab">
                         <h4 class="font-bold">Fiji Water</h4>
                         <a href="https://fijiwater.com" target="_blank" class="text-xs text-blue-600 font-bold">Global Brand | Visit Website→</a>
                     </div>
                 </div>
-                <div class="project-wrapper h-[400px]" data-aos="zoom-in" data-aos-delay="300">
+
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="zoom-in" data-aos-delay="200">
                     <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=800" class="site-view">
                     <div class="glass-tab">
                         <h4 class="font-bold">Luxury Perfume</h4>
@@ -175,107 +263,154 @@
                     </div>
                 </div>
 
-                  <div class="project-wrapper h-[400px]" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=870&auto=format&fit=crop" class="site-view">
                     <div class="glass-tab">
-                        <h4 class="font-bold">Arabian Tea
-</h4>
-                        <a href="https://arabiantea.in/" target="_blank" class="text-xs text-blue-600 font-bold">  Visit Website →</a>
+                        <h4 class="font-bold">Arabian Tea</h4>
+                        <a href="https://arabiantea.in/" target="_blank" class="text-xs text-blue-600 font-bold">Visit Website →</a>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <section id="healthcare" class="mb-32">
-            <h3 class="text-4xl font-extrabold section-title" data-aos="fade-right">Healthcare & Wellness</h3>
-
-             <div class="project-wrapper" data-aos="fade-up" data-aos-delay="200">
+        <section id="healthcare" class="mb-32 md:mb-56 target-section">
+             <h3 class="text-3xl md:text-4xl font-extrabold section-title" data-aos="fade-right">🩺 Healthcare & Wellness</h3>
+             <div class="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-10 lg:gap-12 no-scrollbar snap-x snap-mandatory pb-6 -mx-6 px-6 md:mx-0 md:px-0">
+                
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="fade-up">
                     <img src="https://ik.imagekit.io/filennky/Portfolio/allpics/photo-1498837167922-ddd27525d352.webp" class="site-view">
                     <div class="glass-tab">
-                        <h4 class="font-bold"> Healthcare & Nutrition</h4>
-                        <p class="text-xs text-slate-500 mb-3">Sidhipurnanutrition </p>
-                        <a href="https://sidhipurnanutrition.com/" target="_blank" class="text-sm text-blue-600 font-bold">Visit Site</a>
+                        <h4 class="font-bold">Healthcare & Nutrition</h4>
+                        <p class="text-xs text-slate-500 mb-3">Sidhipurnanutrition</p>
+                        <a href="https://siddhipurnanutrition.com/" target="_blank" class="text-sm text-blue-600 font-bold">Visit Site</a>
                     </div> 
- 
                 </div>
 
-                
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="project-wrapper" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800" class="site-view">
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="flip-left" data-aos-delay="100">
+                    <img src="https://www.georgeinstitute.org/sites/default/files/styles/default_medium/public/2025-02/Royal%20North%20Shore%20Frances%20Naomi%20IMG_1188.jpg.webp" class="site-view">
                     <div class="glass-tab">
-                        <h4 class="font-bold">Bandaari Medical</h4>
-                        <p class="text-xs text-slate-500 mb-3">Global Medical Tourism</p>
-                        <a href="https://bandariglobalhealthcare.com" target="_blank" class="text-sm text-blue-600 font-bold">Visit Site</a>
+                        <h4 class="font-bold">Healthcare of millions</h4>
+                        <p class="text-xs text-slate-500 mb-3">The George Institute</p>
+                        <a href="https://www.georgeinstitute.org/about-us" target="_blank" class="text-sm text-blue-600 font-bold">Visit Site</a>
                     </div>
                 </div>
-                <div class="project-wrapper" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?q=80&w=879&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?q=80&w=879&auto=format&fit=crop" class="site-view">
                     <div class="glass-tab">
-                        <h4 class="font-bold">Thaiger Pharma </h4>
-                        <p class="text-xs text-slate-500 mb-3">Pharmaceutical </p>
+                        <h4 class="font-bold">Thaiger Pharma</h4>
+                        <p class="text-xs text-slate-500 mb-3">Pharmaceutical</p>
                         <a href="https://thaiger-pharma.com/" target="_blank" class="text-sm text-blue-600 font-bold">Visit Site</a>
                     </div>
                 </div>
                 
-                <div class="project-wrapper" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1631248055158-edec7a3c072b?q=80&w=861&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1631248055158-edec7a3c072b?q=80&w=861&auto=format&fit=crop" class="site-view">
                     <div class="glass-tab">
-                        <h4 class="font-bold">Golden Ratio Clinic </h4>
-                        <p class="text-xs text-slate-500 mb-3">Golden Ratio Plastic Surgery Clinic</p>
+                        <h4 class="font-bold">Golden Ratio Clinic</h4>
+                        <p class="text-xs text-slate-500 mb-3">Plastic Surgery Clinic</p>
                         <a href="https://goldenratioclinic.ie/" target="_blank" class="text-sm text-blue-600 font-bold">Visit Site</a>
                     </div> 
- 
                 </div>
 
-                
-                
             </div>
         </section>
 
-        <section id="realestate" class="mb-32">
-            <h3 class="text-4xl font-extrabold section-title" data-aos="fade-right">Real Estate, Tech and Hotels </h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="project-wrapper h-[400px]" data-aos="flip-left">
+        <section id="realestate" class="mb-32 md:mb-56 target-section">
+            <h3 class="text-3xl md:text-4xl font-extrabold section-title" data-aos="fade-right">🏠 Real Estate, Tech and Hotels</h3>
+            <div class="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-10 lg:gap-12 no-scrollbar snap-x snap-mandatory pb-6 -mx-6 px-6 md:mx-0 md:px-0">
+                
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="flip-left">
                     <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&q=80&w=800" class="site-view">
                     <div class="glass-tab">
                         <h4 class="font-bold">Asset Homes</h4>
                         <a href="https://assethomes.in" target="_blank" class="text-xs text-blue-600 font-bold">Premium Living →</a>
                     </div>
                 </div>
-                <div class="project-wrapper h-[400px]" data-aos="flip-left" data-aos-delay="100">
+
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="flip-left" data-aos-delay="100">
                     <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800" class="site-view">
                     <div class="glass-tab">
                         <h4 class="font-bold">BookMyFirstHome</h4>
                         <a href="https://bookmyfirsthome.com" target="_blank" class="text-xs text-blue-600 font-bold">Rental Platform →</a>
                     </div>
                 </div>
-               <div class="project-wrapper h-[400px]" data-aos="flip-left" data-aos-delay="300">
-                    <img src="https://plus.unsplash.com/premium_photo-1661964071015-d97428970584?q=80&w=1020&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="site-view">
+
+               <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="flip-left" data-aos-delay="200">
+                    <img src="https://plus.unsplash.com/premium_photo-1661964071015-d97428970584?q=80&w=1020&auto=format&fit=crop" class="site-view">
                     <div class="glass-tab">
-                        <h4 class="font-bold"> Hotel Prince </h4>
-                        <a href="https://hotelprince.in/" target="_blank" class="text-xs text-blue-600 font-bold"> Visit Website →</a>
+                        <h4 class="font-bold">Hotel Prince</h4>
+                        <a href="https://hotelprince.in/" target="_blank" class="text-xs text-blue-600 font-bold">Visit Website →</a>
                     </div>
                 </div>
-                <div class="project-wrapper h-[400px]" data-aos="flip-left" data-aos-delay="300">
+
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="flip-left" data-aos-delay="300">
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" class="site-view">
                     <div class="glass-tab">
-                        <h4 class="font-bold"> Dawsons Tech </h4>
+                        <h4 class="font-bold">Dawsons Tech</h4>
                         <a href="https://dawsonstech.com/" target="_blank" class="text-xs text-blue-600 font-bold">Visit Website →</a>
                     </div>
                 </div>
 
-                 
+            </div>
+        </section>
+
+        <section id="apps" class="mb-32 md:mb-56 target-section">
+            <h3 class="text-3xl md:text-4xl font-extrabold section-title" data-aos="fade-right">📲 Application Project Work</h3>
+            <div class="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-10 lg:gap-12 no-scrollbar snap-x snap-mandatory pb-6 -mx-6 px-6 md:mx-0 md:px-0">
+                
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="flip-left">
+                    <img src="https://cms.nextlabs.io/wp-content/uploads/2025/10/6481bb1e3ba83ef58821c861_8EYdAqIjrz.jpeg" class="site-view">
+                    <div class="glass-tab">
+                         <h4 class="font-bold">WooCommerce POS</h4>
+                        <a href="https://play.google.com/store/apps/details?id=com.pos.hickter.app" target="_blank" class="text-xs text-blue-600 font-bold">POS App →</a>
+                    </div>
+                </div>
+
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="flip-left" data-aos-delay="100">
+                    <img src="https://i.pcmag.com/imagery/roundups/03yy022DDsenwhBBYdxvwDi-3..v1593631883.jpg" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold">CloudStorage App</h4>
+                        <a href="https://play.google.com/store/apps/details?id=com.store.it.app" target="_blank" class="text-xs text-blue-600 font-bold">Storeit →</a>
+                    </div>
+                </div>
+
+               <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="flip-left" data-aos-delay="200">
+                    <img src="https://www.cloud4u.com/upload/iblock/48c/Cloud_Storage_free.jpg" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold">Perfex CRM Custom</h4>
+                        <a href="https://play.google.com/store/apps/details?id=com.crm.pro.app" target="_blank" class="text-xs text-blue-600 font-bold">CRMPro App →</a>
+                    </div>
+                </div>
+
+                <div class="project-wrapper min-w-[280px] sm:min-w-[320px] w-[80vw] md:w-auto snap-center" data-aos="flip-left" data-aos-delay="300">
+                    <img src="https://cdn.prod.website-files.com/60c76f07dc83db305171350c/69679a38bef00e707d73bb86_thumbnail_10%20Best%20Time%20Tracking%20Software%20for%20Consultants.png" class="site-view">
+                    <div class="glass-tab">
+                        <h4 class="font-bold">Activity & Reminder</h4>
+                        <a href="https://play.google.com/store/apps/details?id=com.tracknn.activity.app" target="_blank" class="text-xs text-blue-600 font-bold">Tracknn →</a>
+                    </div>
+                </div>
 
             </div>
         </section>
 
     </main>
 
+    <div id="backToTopContainer" class="fixed bottom-6 right-6 z-50 pointer-events-none opacity-0 transition-all duration-500 translate-y-4">
+        <div class="relative group">
+            <div class="pulse-ring"></div>
+            <button onclick="scrollToTop()" class="pointer-events-auto relative flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-2xl transition-all duration-300 transform group-hover:scale-110 active:scale-90">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-5 h-5 md:w-6 md:h-6 transform group-hover:-translate-y-0.5 transition-transform duration-300">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <footer class="bg-slate-900 text-white py-24 px-6 text-center">
         <div class="max-w-4xl mx-auto">
-            <h3 class="text-4xl font-bold mb-6">Building Something Great Together </h3>
+            <h3 class="text-4xl font-bold mb-6">Building Something Great Together</h3>
             <a href="mailto:nkydocs@gmail.com" class="text-2xl font-light text-blue-400 border-b border-blue-400 pb-1">nkydocs@gmail.com</a>
             <div class="mt-12 flex justify-center gap-8 text-xs font-bold text-slate-500 tracking-[0.3em]">
                 <span>FULLSTACK</span>
@@ -287,6 +422,58 @@
 
     <script>
         AOS.init({ duration: 800, once: true });
+
+        const sections = document.querySelectorAll('.target-section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navContainer = document.getElementById('nav-container');
+        const backToTop = document.getElementById('backToTopContainer');
+
+        // Scroll Event Listener to Control Floating Top Button Visibility
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                backToTop.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                backToTop.classList.remove('opacity-100', 'translate-y-0');
+                backToTop.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+            }
+        });
+
+        // Click handler action function
+        function scrollToTop() {
+            document.getElementById('top-anchor').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -60% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active-menu');
+                            
+                            if (window.innerWidth < 768) {
+                                const containerWidth = navContainer.offsetWidth;
+                                const linkLeft = link.offsetLeft;
+                                const linkWidth = link.offsetWidth;
+                                navContainer.scrollLeft = linkLeft - (containerWidth / 2) + (linkWidth / 2);
+                            }
+                        } else {
+                            link.classList.remove('active-menu');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
     </script>
 </body>
 </html>
